@@ -31,7 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
+#define uest unordered_set
 #define umest unordered_multiset
 // Array
 #define ar array
@@ -273,7 +273,9 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int x;
+    read(x);
+    print(x>=30 ? "Yes":"No");
 }
 
 int main(){
@@ -285,7 +287,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

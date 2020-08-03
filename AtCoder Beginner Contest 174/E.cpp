@@ -31,7 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
+#define uest unordered_set
 #define umest unordered_multiset
 // Array
 #define ar array
@@ -272,8 +272,29 @@ const ll mxN = 1e9;
  * CODE HERE
  *
  */
+int gm(vt<double> a){
+    double mx=0;
+    int ans;
+    F(sz(a)){
+        if(a[i]>mx){
+            mx=a[i];
+            ans=i;
+        }
+    }
+    return ans;
+}
 void solve(){
-    ;
+    int n, k;
+    read(n, k);
+    vt<double> a(n);
+    read(a);
+    F(k){
+        int c=gm(a);
+        double t=a[c]/2;
+        a[c]-=t;
+        a.pb(t);
+    }
+    print((int)(ceil(a[gm(a)])));
 }
 
 int main(){
@@ -285,7 +306,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

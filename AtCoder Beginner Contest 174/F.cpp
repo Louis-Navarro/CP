@@ -31,7 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
+#define uest unordered_set
 #define umest unordered_multiset
 // Array
 #define ar array
@@ -273,7 +273,54 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n, q;
+    read(n, q);
+    vti c(n);
+    read(c);
+    //if (n<=q){
+        //set<int> dp[n][n];
+        //F(n){
+            //set<int> s;
+            //F(j, i, n){
+                //s.insert(c[j]);
+                //dp[i][j]=s;
+            //}
+        //}
+        //F(q){
+            //int l, r;
+            //read(l, r);
+            //--l, --r;
+            //print(sz(dp[l][r]));
+        //}
+    //}
+    //else{
+        //F(q){
+            //int l, r;
+            //read(l, r);
+            //--l;
+            //set<int> s;
+            //F(j, l, r)
+                //s.insert(c[j]);
+            //print(sz(s));
+        //}
+    //}
+    vt<vti> dp(n, vti(n, 0));
+    F(q){
+        int l, r;
+        read(l, r);
+        --l, --r;
+        if (dp[l][r]){
+            //print("YES");
+            print(dp[l][r]);
+            continue;
+        }
+        set<int> s;
+        F(j, l, r+1)
+            s.insert(c[j]);
+        int p=sz(s);
+        dp[l][r]=p;
+        print(p);
+    }
 }
 
 int main(){
@@ -285,7 +332,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

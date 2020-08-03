@@ -31,7 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
+#define uest unordered_set
 #define umest unordered_multiset
 // Array
 #define ar array
@@ -273,7 +273,14 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int k;
+    read(k);
+    int c=7;
+    int ans=1;
+    for(; c<k; ){
+        
+    }
+    print(c%k==0 ? ans:-1);
 }
 
 int main(){

@@ -31,8 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
-#define umest unordered_multiset
+#define uest unordered_set
 // Array
 #define ar array
 
@@ -262,8 +261,8 @@ void DBG(H h, T... t){
  * CONSTANTS
  *
  */
-//const int INF = 2147483647;
 const int INF = 1e9;
+//const int INF = 2147483647;
 
 const ll mxN = 1e9;
 
@@ -273,7 +272,62 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n;
+    read(n);
+    vti s(n);
+    read(s);
+    vti cnt(5);
+    F(n)
+        ++cnt[s[i]];
+    //int eco13=min(cnt[1], cnt[3]);
+    //int eco22=cnt[2]/2;
+    //int eco12=min(cnt[1]-eco13, cnt[2]-eco22);
+    //int eco11=(cnt[1]-eco13-eco12)/4;
+    //eco11+=(cnt[1]-eco13-eco12-eco11)/3;
+    //eco11+=(cnt[1]-eco13-eco12-eco11)/2;
+    //print(cnt[1] + cnt[2] + cnt[3] + cnt[4] - eco13 - eco12 - eco22 - eco11);
+    int ans=n;
+    int tmp;
+    tmp=min(cnt[1], cnt[3]);
+    ans-=tmp, cnt[1]-=tmp, cnt[3]-=tmp;
+    
+    tmp=cnt[2]/2;
+    ans-=tmp, cnt[2]-=tmp*2;
+
+    tmp=cnt[1]/4;
+    ans-=tmp*3, cnt[1]-=tmp*4;
+
+    tmp=cnt[1]/3;
+    ans-=tmp*2, cnt[1]-=tmp*3;
+
+    tmp=min(cnt[1]/2, cnt[2]);
+    ans-=tmp*2, cnt[1]-=tmp*2, cnt[2]-=tmp;
+
+    tmp=min(cnt[1], cnt[2]);
+    ans-=tmp, cnt[1]-=tmp, cnt[2]-=tmp;
+    
+    tmp=cnt[1]/2;
+    ans-=tmp, cnt[1]-=tmp*2;
+
+    print(ans);
+
+    //vt<bool> d(n, false);
+    //sort(all(s));
+    //int ans=0;
+    //F(n){
+        //if (!d[i]){
+            ////dbg(i);
+            //++ans;
+            ////d[i]=true;
+            //F(j, n-1, i, -1){
+                //if (!d[j] && s[i]+s[j]<=4){
+                    //d[j]=true;
+                    //break;
+                //}
+            //}
+        //}
+    //}
+    //print(ans);
 }
 
 int main(){
@@ -285,7 +339,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

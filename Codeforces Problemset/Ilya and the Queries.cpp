@@ -31,7 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
+#define uest unordered_set
 #define umest unordered_multiset
 // Array
 #define ar array
@@ -265,15 +265,32 @@ void DBG(H h, T... t){
 //const int INF = 2147483647;
 const int INF = 1e9;
 
-const ll mxN = 1e9;
+const ll mxN = 1e5;
 
 /*
  *
  * CODE HERE
  *
+ *
  */
+
 void solve(){
-    ;
+    string s;
+    read(s);
+    int n=sz(s);
+    vti dp(n);
+    dp[0] = 0;
+    F(i, 1, n)
+        dp[i] = dp[i-1] + (int)(s.at(i) == s.at(i-1));
+    //print(dp);
+    int m;
+    read(m);
+    F(m){
+        int l, r;
+        read(l, r);
+        --l, --r;
+        print(dp[r]-dp[l]);
+    }
 }
 
 int main(){
@@ -285,9 +302,9 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();
     }
-}
+} 

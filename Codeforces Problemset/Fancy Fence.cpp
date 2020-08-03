@@ -31,8 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
-#define umest unordered_multiset
+#define uest unordered_set
 // Array
 #define ar array
 
@@ -273,7 +272,10 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    double a;
+    read(a);
+    double an=-360/(a-180);
+    print(an==floor(an) ? "YES":"NO");
 }
 
 int main(){

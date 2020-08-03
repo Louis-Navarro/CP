@@ -31,8 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uset unordered_set
-#define umest unordered_multiset
+#define uest unordered_set
 // Array
 #define ar array
 
@@ -271,9 +270,33 @@ const ll mxN = 1e9;
  *
  * CODE HERE
  *
+ *
  */
+
+//int search(int el){
+    //int lb=0, rb=n;
+    //while (lb<rb){
+        //int mb=(lb+rb)/2;
+        //if (mb <= el) lb=mb+1;
+        //else rb=mb;
+    //}
+    //return inx==0 ? 
+//}
+
 void solve(){
-    ;
+    int n;
+    read(n);
+    vti x(n);
+    read(x);
+    sort(all(x));
+    int q;
+    read(q);
+    F(q){
+        int c;
+        read(c);
+        auto it = upper_bound(all(x), c);
+        print(it - x.begin());
+    }
 }
 
 int main(){
@@ -285,7 +308,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();
