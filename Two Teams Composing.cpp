@@ -121,18 +121,18 @@ int gcd(int a, int b){
 int lcm(int a, int b){
     return a * b / gcd(a, b);
 }
-int egcd(int a, int b, int& x, int& y){
-    if (b==0){
-        x=1;
-        y=0;
-        return a;
-    }
-    int x1, y1;
-    int d=egcd(b, a%b, x1, y1);
-    x=y1;
-    y=x1 - y1*(a/b);
-    return d;
-}
+//int egcd(int a, int b, int &x, int &y){
+    //if (b==0){
+        //x=1;
+        //y=0;
+        //return a;
+    //}
+    //int x1, y1;
+    //int d=gcd(b, a%b, x1, y1);
+    //x=y1;
+    //y=x1 - y1*(a/b);
+    //return d;
+//}
 
 
 /*
@@ -273,7 +273,24 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n;
+    read(n);
+    umii a;
+    int mx=0, imx;
+    F(n){
+        int c;
+        read(c);
+        ++a[c];
+        if (umax(mx, a[c])) imx=c;
+    }
+    int ans=0;
+    for(int x=min(min(n/2, sz(a)), mx); ~i; --i){
+        if (x){
+            ans=x;
+            break;
+        }
+    }
+    print(ans);
 }
 
 int main(){

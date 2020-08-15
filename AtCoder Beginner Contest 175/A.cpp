@@ -273,7 +273,24 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    string s;
+    read(s);
+    int ans=0, c=0;
+    char prev=s[0];
+    EACH(x, s){
+        if (x==prev && x=='R')
+            ++c;
+        else if (x=='R')
+            c=1;
+        else{
+            umax(ans, c);
+            c=0;
+        }
+        prev=x;
+    }
+    umax(ans, c);
+    print(ans);
+
 }
 
 int main(){
@@ -285,7 +302,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

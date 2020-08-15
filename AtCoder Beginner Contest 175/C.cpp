@@ -273,7 +273,32 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    ll x, k, d;
+    read(x, k, d);
+    x=abs(x);
+    ll mn=x;
+    //while (abs(x-d)<mn && k){
+        //x-=d;
+        //--k;
+        //mn=abs(x);
+    //}
+    ll ch = x/d;
+    if (abs(x-ch*d) >= abs(x-d-ch*d)) ++ch;
+    umin(ch, k);
+    k-=ch;
+    x=abs(x-ch*d);
+    if (k) print(k&1 ? abs(x-d) : x);
+    else print(x);
+
+
+    /*
+    
+        x, k, d
+        min abs(x-d*min(a, k))
+     
+        ll ch = x/d;
+        if (!x-ch*d<x-d-ch*d) ++ch;
+     */
 }
 
 int main(){
@@ -285,9 +310,10 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();
     }
+    return 0;
 }

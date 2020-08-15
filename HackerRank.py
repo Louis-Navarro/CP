@@ -1,19 +1,9 @@
 def main():
-    n=int(input())
-    ar=list(map(int, input().split()))
-
-    d={}
-    for i in ar:
-        if d.get(i, None):
-            d[i]+=1
-        else:
-            d[i]=1
-
-    t=0
-    for k, v in d.items():
-        t+=v//2
-
-    print(t)
+    *t, n = map(int, input().split())
+    t=list(t)
+    for i in range(2, n):
+        t.append(t[i-2] + t[i-1]*t[i-1])
+    print(t[-1])
 
 
 if __name__ == '__main__':

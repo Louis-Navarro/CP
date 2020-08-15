@@ -273,7 +273,42 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int r, c, k;
+    read(r, c, k);
+    vt<vti> dp(r, vti(c, 0));
+    F(k){
+        int ri, ci, vi;
+        read(ri, ci, vi);
+        --ri, --ci;
+        dp[ri][ci]=vi;
+    }
+    F(r){
+        auto cur=dp[i];
+        sort(all(cur));
+        F(j, c-3){
+            auto it = find(all(dp[i]), cur[i]);
+            if (it!=dp.end()) dp[i][it-dp[i].begin()]=0;
+        }
+    }
+    EACH(i, dp){
+        EACH(j, i)
+            write(j, ' ');
+        print();
+    }
+    F(i, r-1, -1, -1) F(j, c-1, -1, -1){
+        int cur=0;
+        if (i+1<r) umax(cur, dp[i+1][j]);
+        if (j+1<c) umax(cur, dp[i][j+1]);
+        //dbg(i, j, r, c);
+        //print(i+1<r, j+1<c);
+        dp[i][j]+=cur;
+    }
+    EACH(i, dp){
+        EACH(j, i)
+            write(j, ' ');
+        print();
+    }
+    print(dp[0][0]);
 }
 
 int main(){
@@ -285,7 +320,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

@@ -273,7 +273,11 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n, m;
+    read(n, m);
+    vti a(m);
+    read(a);
+    
 }
 
 int main(){
@@ -285,7 +289,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

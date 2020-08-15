@@ -273,7 +273,23 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n;
+    read(n);
+    vti w(n);
+    read(w);
+    vti a(2*n);
+    F(n-1){
+        set<int> p;
+        F(j, i+1, n)
+            p.insert(a[w[i]+w[j]]);
+        for (auto it=p.begin(); it!=p.end(); ++it){
+            ++a[*it];
+        }
+    }
+    int ans=0;
+    F(2*n)
+        umax(ans, a[i]);
+    print(ans);
 }
 
 int main(){

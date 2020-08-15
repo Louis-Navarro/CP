@@ -273,7 +273,16 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n;
+    read(n);
+    vti a(n);
+    read(a);
+    sort(all(a));
+    bool ok=true;
+    for (int i=1; i<sz(a); ++i){
+        if (a[i]-1>a[i-1]) ok=false;
+    }
+    print(ok ? "YES":"NO");
 }
 
 int main(){

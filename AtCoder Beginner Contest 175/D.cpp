@@ -262,8 +262,8 @@ void DBG(H h, T... t){
  * CONSTANTS
  *
  */
-//const int INF = 2147483647;
-const int INF = 1e9;
+//const ll INF = 2147483647;
+const ll INF = 9223372036854775807;
 
 const ll mxN = 1e9;
 
@@ -272,8 +272,37 @@ const ll mxN = 1e9;
  * CODE HERE
  *
  */
+int n, k;
+vt<ll> p, c;
+
+//ll sim(int inx){
+    //ll mx=-INF, cur=0;
+    //F(k){
+        //inx=p[inx]-1;
+        //cur+=c[inx];
+        //umax(mx, cur);
+    //}
+    //return mx;
+//}
+
 void solve(){
-    ;
+    read(n, k);
+    p=c=vt<ll>(n);
+    read(p, c);
+    //ll ans=-INF;
+    //F(n)
+        //umax(ans, sim(i));
+
+    sort(all(p), [](const int& a, const int &b)
+
+    int dp[n][k];
+    F(n)
+        dp[i][0]=0;
+    F(i, 1, n) F(j, k){
+        dp[i][j] = dp[p[i]-1][j-1]+c[i];
+    }
+
+    print(dp[n-1][k-1]);
 }
 
 int main(){
@@ -285,7 +314,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

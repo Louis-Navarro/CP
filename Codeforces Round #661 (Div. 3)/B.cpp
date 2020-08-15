@@ -273,7 +273,19 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n;
+    read(n);
+    vti a(n), b(n);
+    read(a, b);
+    ll ans=0;
+    int ma=1e9, mb=1e9;
+    for (int i=0; i<n; ++i){
+        umin(ma, a[i]);
+        umin(mb, b[i]);
+    }
+    for (int i=0; i<n; ++i)
+        ans+=max(a[i]-ma, b[i]-mb);
+    print(ans);
 }
 
 int main(){

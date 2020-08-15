@@ -31,7 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uest unordered_set
+#define uset unordered_set
 #define umest unordered_multiset
 // Array
 #define ar array
@@ -121,18 +121,18 @@ int gcd(int a, int b){
 int lcm(int a, int b){
     return a * b / gcd(a, b);
 }
-//int egcd(int a, int b, int &x, int &y){
-    //if (b==0){
-        //x=1;
-        //y=0;
-        //return a;
-    //}
-    //int x1, y1;
-    //int d=gcd(b, a%b, x1, y1);
-    //x=y1;
-    //y=x1 - y1*(a/b);
-    //return d;
-//}
+int egcd(int a, int b, int& x, int& y){
+    if (b==0){
+        x=1;
+        y=0;
+        return a;
+    }
+    int x1, y1;
+    int d=egcd(b, a%b, x1, y1);
+    x=y1;
+    y=x1 - y1*(a/b);
+    return d;
+}
 
 
 /*
@@ -273,17 +273,12 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    int n, q;
-    read(n, q);
-    vt<vti> dp(n, vti(n));
-    F(q){
-        int x, l, r;
-        read(x, l, r);
-        if (x)
-            print(dp[l][r]);
-        else
-            ++dp[l]
-    }
+    int n;
+    vt<ull> t(2);
+    read(t, n);
+    F(i, 2, n+1)
+        t.pb(t[i-2] + t[i-1]*t[i-1]);
+    print(t[n-1]);
 }
 
 int main(){
@@ -295,7 +290,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

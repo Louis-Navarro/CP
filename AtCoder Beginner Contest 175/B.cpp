@@ -273,7 +273,21 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    int n;
+    read(n);
+    vti a(n);
+    read(a);
+    sort(all(a));
+    int ans=0;
+    F(i, n){
+        F(j, i+1, n){
+            F(k, j+1, n){
+                if (a[i]+a[j]>a[k] && a[i]!=a[j] && a[j]!=a[k] && a[i]!=a[k])
+                    ++ans;
+            }
+        }
+    }
+    print(ans);
 }
 
 int main(){
@@ -285,7 +299,7 @@ int main(){
     //freopen("output.txt", "w", stdout);
         
     int t = 1;
-    read(t);
+    //read(t);
     F(t){
         //write("Case #",  i+1, ": ");
         solve();

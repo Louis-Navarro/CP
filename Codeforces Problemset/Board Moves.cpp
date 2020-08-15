@@ -273,7 +273,11 @@ const ll mxN = 1e9;
  *
  */
 void solve(){
-    ;
+    ll n;
+    read(n);
+    n/=2LL;
+    ll ans=n*(n+1)*(2*n+1)/6;
+    print(8*ans);
 }
 
 int main(){
