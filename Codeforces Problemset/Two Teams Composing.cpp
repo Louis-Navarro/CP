@@ -31,7 +31,7 @@ using namespace std;
 #define umii unordered_map<int, int>
 // Sets
 #define mset multiset
-#define uest unordered_set
+#define uset unordered_set
 #define umest unordered_multiset
 // Array
 #define ar array
@@ -275,15 +275,22 @@ const ll mxN = 1e9;
 void solve(){
     int n;
     read(n);
-    mii s;
-    vti a(n);
+    umii a;
+    int mx=0, imx;
     F(n){
-        read(a[i]);
-        ++s[a[i]];
+        int c;
+        read(c);
+        ++a[c];
+        if (umax(mx, a[c])) imx=c;
     }
-    F(x, sz(s), 0, -1){
-
+    int ans=0;
+    for(int x=min(min(n/2, sz(a)), mx); ~i; --i){
+        if (x){
+            ans=x;
+            break;
+        }
     }
+    print(ans);
 }
 
 int main(){
