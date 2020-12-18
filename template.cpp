@@ -23,6 +23,10 @@ using namespace std;
 #define vtl vector<long long>
 #define vtd vector<double>
 #define vtld vector<long double>
+// Pairs
+#define pr pair
+#define pii pair<int, int>
+#define pll pair<long long, long long>
 // Maps
 #define mmap multimap
 #define umap unordered_map

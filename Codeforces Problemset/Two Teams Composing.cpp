@@ -275,22 +275,13 @@ const ll mxN = 1e9;
 void solve(){
     int n;
     read(n);
-    umii a;
-    int mx=0, imx;
+    vti a(n);
     F(n){
         int c;
         read(c);
-        ++a[c];
-        if (umax(mx, a[c])) imx=c;
+        ++a[--c];
     }
-    int ans=0;
-    for(int x=min(min(n/2, sz(a)), mx); ~i; --i){
-        if (x){
-            ans=x;
-            break;
-        }
-    }
-    print(ans);
+    
 }
 
 int main(){
